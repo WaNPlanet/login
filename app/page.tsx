@@ -75,7 +75,7 @@ export default function Home() {
             </fieldset>
 
             <div className="text-left mb-4">
-              <Link href="#" className="text-sm text-blue-600 hover:underline">Forgot Password?</Link>
+              <Link href="#" className="text-sm text-black hover:underline">Forgot Password?</Link>
             </div>
 
             <button type="submit" className="btn btn-success w-full py-2 text-lg text-white rounded-lg">Login</button>
