@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div className="max-w-6xl mx-auto p-1">
-      <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 shadow-lg rounded-xl overflow-hidden min-h-[550px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100  rounded-xl overflow-hidden min-h-[550px]">
         
         {/* Image Section */}
         <div className="w-full h-full relative">
