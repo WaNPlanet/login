@@ -74,7 +74,7 @@ export default function Home() {
               />
             </fieldset>
 
-            <div className="text-center mb-4">
+            <div className="text-left mb-4">
               <Link href="#" className="text-sm text-blue-600 hover:underline">Forgot Password?</Link>
             </div>
 
