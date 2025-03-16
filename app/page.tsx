@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +6,7 @@ export default function Home() {
   const [is2FAModalOpen, setIs2FAModalOpen] = useState(false);
   const [otp, setOtp] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIs2FAModalOpen(true); // Open 2FA modal after login
   };
@@ -41,45 +40,44 @@ export default function Home() {
           <p className="text-gray-600 text-sm text-center">Welcome Back! Log in to the system</p>
 
           <form onSubmit={handleLogin} className="space-y-3">
-  <fieldset className="fieldset mb-2">
-    <legend className="fieldset-legend text-sm font-medium">Hospital Identification*</legend>
-    <input 
-      type="text" 
-      className="input input-bordered w-full text-base p-2 rounded-lg" 
-      placeholder="Enter your Hospital ID" 
-      required 
-    />
-    <p className="text-sm text-gray-500">Enter Your Unique ID issued by Futurix</p>
-  </fieldset>
+            <fieldset className="fieldset mb-2">
+              <legend className="fieldset-legend text-sm font-medium">Hospital Identification*</legend>
+              <input 
+                type="text" 
+                className="input input-bordered w-full text-base p-2 rounded-lg" 
+                placeholder="Enter your Hospital ID" 
+                required 
+              />
+              <p className="text-sm text-gray-500">Enter Your Unique ID issued by Futurix</p>
+            </fieldset>
 
-  <fieldset className="fieldset mb-2">
-    <legend className="fieldset-legend text-sm font-medium">Password*</legend>
-    <input 
-      type="password" 
-      className="input input-bordered w-full text-base p-2 rounded-lg" 
-      placeholder="Enter your password" 
-      required 
-    />
-    <p className="text-sm text-gray-500">Password must be at least 8 characters</p>
-  </fieldset>
+            <fieldset className="fieldset mb-2">
+              <legend className="fieldset-legend text-sm font-medium">Password*</legend>
+              <input 
+                type="password" 
+                className="input input-bordered w-full text-base p-2 rounded-lg" 
+                placeholder="Enter your password" 
+                required 
+              />
+              <p className="text-sm text-gray-500">Password must be at least 8 characters</p>
+            </fieldset>
 
-  <fieldset className="fieldset mb-2">
-    <legend className="fieldset-legend text-sm font-medium">Hospital Email*</legend>
-    <input 
-      type="email" 
-      className="input input-bordered w-full text-base p-2 rounded-lg" 
-      placeholder="Enter your email" 
-      required 
-    />
-  </fieldset>
+            <fieldset className="fieldset mb-2">
+              <legend className="fieldset-legend text-sm font-medium">Hospital Email*</legend>
+              <input 
+                type="email" 
+                className="input input-bordered w-full text-base p-2 rounded-lg" 
+                placeholder="Enter your email" 
+                required 
+              />
+            </fieldset>
 
-  <div className="text-center mb-4">
-    <Link href="#" className="text-sm text-blue-600 hover:underline">Forgot Password?</Link>
-  </div>
+            <div className="text-center mb-4">
+              <Link href="#" className="text-sm text-blue-600 hover:underline">Forgot Password?</Link>
+            </div>
 
-  <button type="submit" className="btn btn-success w-full py-2 text-lg text-white rounded-lg">Login</button>
-</form>
-
+            <button type="submit" className="btn btn-success w-full py-2 text-lg text-white rounded-lg">Login</button>
+          </form>
         </div>
       </div>
 
