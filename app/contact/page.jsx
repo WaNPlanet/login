@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import ScrollingImages from "@/app/Company/Contact/ScrollingImages";
+import ScrollingImages from "./ScrollingImages";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -21,7 +21,10 @@ export default function ContactPage() {
   return (
     <>
       {/* Header Section */}
-<div className="relative w-full bg-cover bg-center text-white" style={{ backgroundImage: "url('/contact.jpeg')" }}>
+      <div 
+  className="relative w-full h-[400px] bg-cover bg-center text-white"
+  style={{ backgroundImage: "url('./contact.png')" }}
+>
   {/* Navbar */}
   <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
     scrolled ? 'bg-black shadow-md' : 'bg-transparent'
