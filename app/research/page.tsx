@@ -127,7 +127,8 @@ export default function ResearchPage() {
             {brands.map((brand) => (
               <button
                 key={brand.name}
-                onClick={() => setActiveTab(brand.name)}
+                onClick={() => setActiveTab(brand.name as TabKey)}
+
                 className={`flex items-center gap-3 mx-4 rounded-full px-6 py-3 text-base font-semibold transition-colors ${
                   activeTab === brand.name
                     ? "bg-sky-600 text-white"
