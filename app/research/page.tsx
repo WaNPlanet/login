@@ -101,7 +101,7 @@ export default function ResearchPage() {
             <div className="bg-purple-50 p-8 rounded-xl shadow-sm text-left min-h-[280px]">
             <h3 className="text-xl font-semibold mb-2">Behavioral Biometrics for Transaction Security</h3>
 <p className="text-gray-700 text-base leading-relaxed">
-  We're investigating behavioral biometrics—like typing speed and mouse movement—as a second layer of user authentication. This innovative approach adds a non-intrusive security layer, making online payments more secure without compromising user experience.
+  We&apos;re investigating behavioral biometrics—like typing speed and mouse movement—as a second layer of user authentication. This innovative approach adds a non-intrusive security layer, making online payments more secure without compromising user experience.
 </p>
 
             </div>
