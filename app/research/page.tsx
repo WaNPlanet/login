@@ -4,7 +4,7 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 export default function ResearchPage() {
-  const [activeTab, setActiveTab] = useState("Visa Verifi");
+
   const tabData = {
     "Visa Verifi": {
       title: "Empowering Solutions Through Visa Verifi",
@@ -43,7 +43,8 @@ export default function ResearchPage() {
       image: "/images/r2.jpg",
     },
   };
-
+  type TabKey = keyof typeof tabData;
+  const [activeTab, setActiveTab] = useState<TabKey>("Visa Verifi");
   const brands = [
     { name: "Visa Verifi", logo: "/images/r9.jpg" },
     { name: "Authorize.net", logo: "/images/r9.jpg" },
@@ -100,7 +101,7 @@ export default function ResearchPage() {
             <div className="bg-purple-50 p-8 rounded-xl shadow-sm text-left min-h-[280px]">
             <h3 className="text-xl font-semibold mb-2">Behavioral Biometrics for Transaction Security</h3>
 <p className="text-gray-700 text-base leading-relaxed">
-  We&apos;re investigating behavioral biometrics—like typing speed and mouse movement—as a second layer of user authentication. This innovative approach adds a non-intrusive security layer, making online payments more secure without compromising user experience.
+  We're investigating behavioral biometrics—like typing speed and mouse movement—as a second layer of user authentication. This innovative approach adds a non-intrusive security layer, making online payments more secure without compromising user experience.
 </p>
 
             </div>
@@ -110,7 +111,7 @@ export default function ResearchPage() {
 
 
     
-      {/* Partnership Section */}
+      
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto space-y-12">
         <div className="text-center">
