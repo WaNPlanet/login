@@ -22,9 +22,14 @@ export default function ContactPage() {
     <>
       {/* Header Section */}
       <div 
-  className="relative w-full h-[400px] bg-cover bg-center text-white"
-  style={{ backgroundImage: "url('./contact.png')" }}
+  className="relative w-full h-[400px] bg-cover bg-center bg-no-repeat text-white"
+  style={{ 
+    backgroundImage: "url('/contact.png')",
+    backgroundSize: 'cover',
+    // backgroundPosition: 'center'
+  }}
 >
+  
   {/* Navbar */}
   <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
     scrolled ? 'bg-black shadow-md' : 'bg-transparent'
