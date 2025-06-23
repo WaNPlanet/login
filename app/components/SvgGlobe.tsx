@@ -32,7 +32,7 @@ export default function SvgGlobe() {
     const projection = d3.geoOrthographic()
       .scale(150)
       .center([0, 0])
-      .rotate([0, -30])
+      .rotate([0, -30, 0]) // Initialize with 3 values
       .translate([width / 2, height / 2]);
 
     const path = d3.geoPath().projection(projection);
@@ -56,7 +56,7 @@ export default function SvgGlobe() {
     // Graticule
     const graticule = d3.geoGraticule();
     globe.append('path')
-      .datum(graticule)
+      .datum(graticule())
       .attr('class', 'graticule')
       .attr('d', path)
       .attr('fill', 'none')
@@ -68,12 +68,15 @@ export default function SvgGlobe() {
 
       const countries = topojson.feature(world, world.objects.countries);
 
+      // Add type for the path function
+      const pathFn = (d: GeoJSON.Feature<GeoJSON.Geometry, CountryProperties>) => path(d) || '';
+
       globe.selectAll(".continent")
         .data(countries.features)
         .enter()
         .append("path")
         .attr("class", "continent")
-        .attr("d", path)
+        .attr("d", pathFn)
         .attr("fill", "#1e88e5")
         .attr("stroke", "#0d47a1")
         .attr("stroke-width", "0.5")
@@ -115,16 +118,18 @@ export default function SvgGlobe() {
         .attr('stroke', 'white')
         .attr('stroke-width', '1');
 
-      // Fix: Use a tuple type for rotation
       const rotation: [number, number, number] = [0, -30, 0];
 
       const timer = d3.timer(() => {
         rotation[0] += 0.1;
-        // Fix: Cast to the correct type
-        projection.rotate(rotation as [number, number, number]);
+        projection.rotate(rotation);
 
-        globe.selectAll(".continent").attr("d", path);
-        globe.selectAll(".graticule").attr("d", path);
+        // Update paths with proper typing
+        globe.selectAll<SVGPathElement, GeoJSON.Feature<GeoJSON.Geometry, CountryProperties>>(".continent")
+          .attr("d", pathFn);
+        
+        globe.selectAll<SVGPathElement, GeoJSON.MultiLineString>(".graticule")
+          .attr("d", path);
 
         circles
           .attr("cx", d => projection(d.coordinates)?.[0] || 0)
