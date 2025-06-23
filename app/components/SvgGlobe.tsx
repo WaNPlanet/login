@@ -115,11 +115,13 @@ export default function SvgGlobe() {
         .attr('stroke', 'white')
         .attr('stroke-width', '1');
 
-      const rotation = [0, -30];
+      // Fix: Use a tuple type for rotation
+      const rotation: [number, number, number] = [0, -30, 0];
 
       const timer = d3.timer(() => {
         rotation[0] += 0.1;
-        projection.rotate(rotation);
+        // Fix: Cast to the correct type
+        projection.rotate(rotation as [number, number, number]);
 
         globe.selectAll(".continent").attr("d", path);
         globe.selectAll(".graticule").attr("d", path);
