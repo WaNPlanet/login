@@ -3,24 +3,20 @@
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson-client';
+import type { Topology, GeometryCollection } from 'topojson-specification';
 
 interface City {
   name: string;
   coordinates: [number, number];
 }
 
-interface WorldData {
-  type: string;
+interface CountryProperties {
+  name: string;
+}
+
+interface WorldData extends Topology {
   objects: {
-    countries: {
-      type: string;
-      geometries: Array<{
-        type: string;
-        properties: {
-          name: string;
-        };
-      }>;
-    };
+    countries: GeometryCollection<CountryProperties>;
   };
 }
 
@@ -47,14 +43,15 @@ export default function SvgGlobe() {
 
     // Tooltip
     const tooltip = d3.select("body").append("div")
-      .attr("class", "hidden")
+      .attr("class", "globe-tooltip")
       .style("position", "absolute")
       .style("background", "#fff")
       .style("padding", "4px 8px")
       .style("border-radius", "4px")
       .style("box-shadow", "0 2px 6px rgba(0,0,0,0.15)")
       .style("pointer-events", "none")
-      .style("opacity", "0");
+      .style("opacity", "0")
+      .style("z-index", "10");
 
     // Graticule
     const graticule = d3.geoGraticule();
@@ -80,7 +77,7 @@ export default function SvgGlobe() {
         .attr("fill", "#1e88e5")
         .attr("stroke", "#0d47a1")
         .attr("stroke-width", "0.5")
-        .on("mouseover", function (event: MouseEvent, d: { properties: { name: string } }) {
+        .on("mouseover", function (event: MouseEvent, d: { properties: CountryProperties }) {
           tooltip.transition().duration(200).style("opacity", "0.9");
           tooltip.html(d.properties.name || "Unknown")
             .style("left", `${event.pageX + 10}px`)
@@ -118,7 +115,7 @@ export default function SvgGlobe() {
         .attr('stroke', 'white')
         .attr('stroke-width', '1');
 
-      const  rotation = [0, -30];
+      const rotation = [0, -30];
 
       const timer = d3.timer(() => {
         rotation[0] += 0.1;
@@ -141,7 +138,7 @@ export default function SvgGlobe() {
 
     return () => {
       svg.selectAll('*').remove();
-      d3.select("body").select("div.tooltip").remove();
+      d3.select(".globe-tooltip").remove();
     };
   }, []);
 
@@ -150,6 +147,7 @@ export default function SvgGlobe() {
       <svg
         ref={svgRef}
         className="w-auto h-auto"
+        aria-label="Interactive world globe visualization"
       />
     </div>
   );
