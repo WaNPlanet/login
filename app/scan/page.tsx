@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 
 const ScanPage: React.FC = () => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -50,18 +51,21 @@ const ScanPage: React.FC = () => {
         
         {/* Image Section */}
         <div className="hidden md:flex items-center justify-center bg-base-100 shadow-sm rounded-lg h-[500px]">
-          <img 
-            src="./scanp.png" 
-            alt="Scan" 
-            className="w-[510px] max-w-full h-full object-cover rounded-lg"
-          />
+          
+   <Image 
+  src="./scanp.png" 
+  alt="Scan" 
+  width={500}  
+  height={300} 
+  className="w-[510px] max-w-full h-full object-cover rounded-lg"
+/>
         </div>
 
         {/* Text Section */}
         <div className="bg-base-100  rounded-lg p-6 flex flex-col justify-center h-[500px]">
           <h2 className="text-6xl font-semibold text-center">Time to scan your ID!</h2> <br />
           <p className="text-gray-600 mt-2">
-            This page provides a simple interface to scan a document using your device’s camera. 
+            This page provides a simple interface to scan a document using your device&apos;s camera. 
             Capture and process scanned content instantly.
           </p>
           <div className="mt-4">

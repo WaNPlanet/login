@@ -62,7 +62,7 @@ export default function ContactUs() {
           />
           <div className="relative z-10 text-center">
             <h1 className="text-5xl font-extrabold mb-2">Contact Us</h1>
-            <p className="text-lg text-gray-200">We're here to help. Reach out any time.</p>
+            <p className="text-lg text-gray-200">We&apos;re here to help. Reach out any time.</p>
           </div>
         </div>
 

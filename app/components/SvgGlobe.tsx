@@ -118,7 +118,7 @@ export default function SvgGlobe() {
         .attr('stroke', 'white')
         .attr('stroke-width', '1');
 
-      let rotation = [0, -30];
+      const  rotation = [0, -30];
 
       const timer = d3.timer(() => {
         rotation[0] += 0.1;
