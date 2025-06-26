@@ -12,7 +12,65 @@ const ContactAnimation = dynamic(() => import("../components/ContactAnimation"),
 });
 
 export default function ContactHero() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // In a real app, you would call your API here:
+      // const response = await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+      
+      // For demo purposes, we'll just log the data
+      console.log('Form submitted:', formData);
+      
+      setSubmitStatus({
+        success: true,
+        message: 'Your message has been sent successfully!'
+      });
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message: 'Failed to send message. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-[#ffffff] flex flex-col justify-between font-sans text-black overflow-hidden">
@@ -107,67 +165,97 @@ export default function ContactHero() {
           {/* Contact Form and Info */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Form */}
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Full Name
                 </label>
                 <input
                   type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
                   placeholder="Your Name"
                 />
               </div>
     
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email Address
                 </label>
                 <input
                   type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
                   placeholder="your@email.com"
                 />
               </div>
     
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Phone Number
                 </label>
                 <input
                   type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
                   placeholder="+1234567890"
                 />
               </div>
     
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Subject
                 </label>
                 <input
                   type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
                   placeholder="Subject of your message"
                 />
               </div>
     
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Message
                 </label>
                 <textarea
+                  id="message"
+                  name="message"
                   rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
                   placeholder="Write your message here..."
                 ></textarea>
               </div>
+
+              {submitStatus && (
+                <div className={`p-3 rounded-md ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
     
               <button
                 type="submit"
-                className="mt-4 px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+                disabled={isSubmitting}
+                className={`mt-4 px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
     
