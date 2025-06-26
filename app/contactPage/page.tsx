@@ -83,208 +83,182 @@ export default function ContactHero() {
         </main>
       </section>
 
-      <section className="relative bg-[#0a2540] text-white min-h-screen px-6 py-16 overflow-hidden">
-        <div className="absolute right-0 top-0 w-full md:w-1/2 h-full z-0 opacity-70">
-          <div className="w-full h-full">
-            <Globe />
-          </div>
-        </div>
+     
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <p className="text-[#00d4ff] font-semibold tracking-wide text-sm mb-3">Global scale</p>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                The backbone for <br /> global commerce
-              </h1>
-              <p className="text-lg leading-relaxed text-gray-300">
-                Stripe makes moving money as easy and programmable as moving data. Our teams are
-                based in offices around the world and we process hundreds of billions of dollars each
-                year for ambitious businesses of all sizes.
-              </p>
-            </div>
-            <div className="hidden md:block" />
-          </div>
+<section className="bg-[#f5f5f5] py-24 px-4 md:px-32 text-center font-sans">
+  <div className="max-w-6xl mx-auto">
+    <motion.blockquote
+      className="text-4xl md:text-6xl font-semibold text-gray-800 leading-tight md:leading-[1.2]"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5 }}
+    >
+      &quot;Technology is the catalyst for Africa&apos;s transformation—innovation, not dependence, will define our future.&quot;
+    </motion.blockquote>
 
-          <div className="relative z-10 max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left py-6">
-              <div className="p-6">
-                <p className="text-2xl font-semibold text-white">500M+</p>
-                <p className="text-sm text-gray-400">API requests/day</p>
-              </div>
-              <div className="p-6">
-                <p className="text-2xl font-semibold text-white">99.999%</p>
-                <p className="text-sm text-gray-400">historical uptime</p>
-              </div>
-              <div className="p-6">
-                <p className="text-2xl font-semibold text-white">90%</p>
-                <p className="text-sm text-gray-400">U.S. adult customers</p>
-              </div>
-              <div className="p-6">
-                <p className="text-2xl font-semibold text-white">135+</p>
-                <p className="text-sm text-gray-400">currencies and methods</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <motion.div
+      className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3, duration: 1 }}
+    >
+      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white shadow-xl">
+  <Image
+    src="/images/profile1.jpg"
+    alt="Okyere Nana Kofi"
+    width={192}
+    height={192}
+    className="w-full h-full object-cover"
+    priority
+  />
+</div>
+      <div className="text-center md:text-left">
+        <p className="text-2xl md:text-3xl font-bold text-gray-800">Okyere Nana Kofi</p>
+        <p className="text-lg text-gray-600 mt-2">Founder & CEO</p>
+      </div>
+    </motion.div>
+  </div>
+</section>
 
-      <section>
-        <section className="bg-[#f5f5f5] py-16 px-4 md:px-20 text-center font-sans">
-          <motion.blockquote
-            className="text-2xl md:text-3xl font-semibold text-gray-800 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
-          >
-            &quot;Technology is the catalyst for Africa&apos;s transformation-innovation not dependence, 
-            will define our future&quot;
-          </motion.blockquote>
-
-          <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-4">
-            <Image
-              src="/images/profile1.jpg"
-              alt="Kofi"
-              width={60}
-              height={60}
-              className="rounded-full object-cover"
-            />
-            <div className="text-left">
-              <p className="font-bold text-gray-800">Okyere Nana Kofi</p>
-              <p className="text-gray-600 text-sm">Founder and CEO</p>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <section>
-        <h1 className="text-4xl md:text-6xl text-center font-bold leading-tight text-gray-900 py-4">
-          Reach Us
-        </h1>
-        <div className="grid md:grid-cols-2 gap-8 px-2 sm:px-8 lg:px-10 py-12"> 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <h5 className="font-bold text-lg text-blue-800">Take the first step, we will handle the rest</h5>
-              <br />
-              <label className="block text-sm font-semibold text-gray-700">Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-gray-700">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-gray-700">Message</label>
-              <textarea
-                name="message"
-                rows={5}
-                required
-                className="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={formData.message}
-                onChange={handleChange}
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
-            >
-              Send Message
-            </button>
-          </form>
-
-          <GoogleMapEmbed />
-        </div>
-      </section>
-
-      <section className="relative bg-[#0a2540] text-white">  
-        <div className="relative z-10 px-6 py-20">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-14">
-            <div>
-              <h3 className="text-4xl font-bold mb-6">
-                <span className="text-blue-400 tracking-wider drop-shadow-md">Starinx</span>
-              </h3>
-              <p className="text-gray-400 text-base leading-relaxed">
-                Building future-focused solutions for teams across the world.
-                We believe in speed, simplicity, and security.
-              </p>
-            </div>
+      <section className="mt-20 mb-5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:bg-black/90 rounded-lg p-4 dark:border-[1px] dark:border-stone-900">
+              <div className="p-4">
+                {/* Heading */}
+                <div>
+                  <h1 className="text-md text-gray-600 dark:text-gray-400 font-medium mb-4 text-center">
+                    CONTACT US
+                  </h1>
+                  <div>
+                    <h2 className="text-5xl font-semibold text-gray-800 dark:text-white mb-4 text-center">
+                      Get in <span className="text-blue-600">Touch</span>
+                      <br /> With Us
+                    </h2>
+                  </div>
+                </div>
       
-            <div>
-              <h4 className="text-3xl font-semibold mb-6">Quick Links</h4>
-              <ul className="space-y-3 text-gray-300 text-base">
-                <li><a href="#" className="hover:text-white">Home</a></li>
-                <li><a href="#" className="hover:text-white">About Us</a></li>
-                <li><a href="#" className="hover:text-white">Services</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
-              </ul>
-            </div>
+                {/* Google Map */}
+                <div className="mt-10">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53425.41331518519!2d-0.18678978588990106!3d5.586579138124397!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9afcb9fc8f1f%3A0xafc9a67398c4fb67!2sStanbic%20Heights!5e0!3m2!1sen!2sgh!4v1747075654459!5m2!1sen!2sgh"
+                    width="100%"
+                    height="450"
+                    className="rounded-lg border-0 w-full h-96"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
       
-            <div>
-              <h4 className="text-3xl font-semibold mb-6">Get in Touch</h4>
-              <ul className="space-y-4 text-base text-gray-300">
-                <li className="flex items-start gap-2">
-                  <MapPinIcon className="h-6 w-6 text-blue-400" />
-                  NT469 Obutu Street, Accra Newtown, Ghana
-                </li>
-                <li className="flex items-start gap-2">
-                  <EnvelopeIcon className="h-6 w-6 text-blue-400" />
-                  info.user@starinx.com
-                </li>
-                <li className="flex items-start gap-2">
-                  <PhoneIcon className="h-6 w-6 text-blue-400" />
-                  +233 551 091 265
-                </li>
-              </ul>
-            </div>
+                {/* Contact Form and Info */}
+                <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Contact Form */}
+                  <form className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                        placeholder="Your Name"
+                      />
+                    </div>
       
-            <div>
-              <h4 className="text-3xl font-semibold mb-6">Newsletter</h4>
-              <p className="text-gray-400 text-base mb-4">
-                Subscribe to get the latest news and product updates.
-              </p>
-              <form className="space-y-4">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full rounded-md px-4 py-2 text-white text-sm border bg-[#112d4e] placeholder-gray-300"
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md text-sm"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                        placeholder="your@email.com"
+                      />
+                    </div>
       
-          <div className="mt-20 border-t border-gray-700 pt-10 flex flex-col md:flex-row justify-between items-center text-base text-gray-300">
-            <p className="text-lg font-medium">
-              &copy; {new Date().getFullYear()} Starinx. All rights reserved.
-            </p>
-            <div className="flex gap-6 mt-6 md:mt-0">
-              <a href="#"><FaFacebookF className="hover:text-white h-7 w-7 transition-transform duration-300 hover:scale-110" /></a>
-              <a href="#"><FaTwitter className="hover:text-white h-7 w-7 transition-transform duration-300 hover:scale-110" /></a>
-              <a href="#"><FaLinkedinIn className="hover:text-white h-7 w-7 transition-transform duration-300 hover:scale-110" /></a>
-              <a href="#"><FaInstagram className="hover:text-white h-7 w-7 transition-transform duration-300 hover:scale-110" /></a>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                        placeholder="+1234567890"
+                      />
+                    </div>
+      
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                        placeholder="Subject of your message"
+                      />
+                    </div>
+      
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Message
+                      </label>
+                      <textarea
+                        rows={6}
+                        className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                        placeholder="Write your message here..."
+                      ></textarea>
+                    </div>
+      
+                    <button
+                      type="submit"
+                      className="mt-4 px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
+                    >
+                      Send Message
+                    </button>
+                  </form>
+      
+                  {/* Contact Info */}
+                  <div className="flex flex-col justify-between items-start">
+                    <div className="space-y-6 text-gray-700 dark:text-gray-300">
+                      <div>
+                        <h3 className="text-lg font-semibold">Phone</h3>
+                        <p>+1 (123) 456-7890</p>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold">Email</h3>
+                        <p>support@example.com</p>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold">Twitter</h3>
+                        <p>
+                          <a
+                            href="https://twitter.com/example"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-500 hover:underline"
+                          >
+                            @example
+                          </a>
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold">Office Address</h3>
+                        <p>123 Main Street, San Francisco, CA 94105</p>
+                      </div>
+                    </div>
+                    <div>
+                      <Image
+                        src="/images/contact1.png"
+                        alt="Contact Image"
+                        width={500}
+                        height={500}
+                        className="rounded-lg mt-4"
+                        unoptimized
+                        quality={100}
+                        priority
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
     </main>
   );
 }
