@@ -63,6 +63,7 @@ export default function ContactHero() {
         message: ''
       });
     } catch (error) {
+      console.error('Form submission error:', error); // Now using the error variable
       setSubmitStatus({
         success: false,
         message: 'Failed to send message. Please try again later.'
