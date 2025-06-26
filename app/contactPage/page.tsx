@@ -12,11 +12,7 @@ const ContactAnimation = dynamic(() => import("../components/ContactAnimation"),
 });
 
 export default function ContactHero() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+
 
   return (
     <main className="min-h-screen bg-[#ffffff] flex flex-col justify-between font-sans text-black overflow-hidden">
