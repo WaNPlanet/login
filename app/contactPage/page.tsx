@@ -154,16 +154,149 @@ export default function ContactHero() {
             />
           </div>
     
+            {/* Contact Form and Info */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Form fields remain the same */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                  placeholder="Your Name"
+                />
+              </div>
+    
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                  placeholder="your@email.com"
+                />
+              </div>
+    
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                  placeholder="+1234567890"
+                />
+              </div>
+    
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                  placeholder="Subject of your message"
+                />
+              </div>
+    
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-stone-700 rounded-md focus:ring-blue-500 focus:border-blue-500 dark:bg-stone-800 dark:text-white"
+                  placeholder="Write your message here..."
+                ></textarea>
+              </div>
+
+              {submitStatus && (
+                <div className={`p-3 rounded-md ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+    
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`mt-4 px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
             </form>
-            
+    
+            {/* Contact Info */}
             <div className="flex flex-col justify-between items-start">
-              {/* Contact info remains the same */}
+              <div className="space-y-6 text-gray-700 dark:text-gray-300">
+                <div>
+                  <h3 className="text-lg font-semibold">Phone</h3>
+                  <p>+1 (123) 456-7890</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">Email</h3>
+                  <p>support@example.com</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">Twitter</h3>
+                  <p>
+                    <a
+                      href="https://twitter.com/example"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      @example
+                    </a>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold">Office Address</h3>
+                  <p>123 Main Street, San Francisco, CA 94105</p>
+                </div>
+              </div>
+              <div>
+                <Image
+                  src="/images/contact1.png"
+                  alt="Contact Image"
+                  width={500}
+                  height={500}
+                  className="rounded-lg mt-4"
+                  unoptimized
+                  quality={100}
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
+   
+
       </section>
 
       <section className="relative bg-[#0a2540] text-white min-h-screen px-6 py-16 overflow-hidden">
