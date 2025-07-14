@@ -8,7 +8,7 @@ export default function SolutionsPage() {
   return (
     <main className="min-h-screen bg-white text-black font-sans overflow-x-hidden">
       {/* Intro Section */}
-      <section className="relative pt-32 pb-48 px-6 md:px-20 bg-gradient-to-b from-black to-purple-900 text-white overflow-hidden">
+      <section className="relative pt-32 pb-60 px-6 md:px-20 bg-gradient-to-b from-black to-purple-900 text-white overflow-hidden">
         {/* Animated Background Circles */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full bg-purple-700 opacity-10 blur-xl animate-float"></div>
@@ -21,7 +21,6 @@ export default function SolutionsPage() {
           <h1 className="text-4xl md:text-6xl font-extrabold gradient-text mb-4">
             Smart Solutions for Modern Businesses
           </h1>
-         
         </div>
 
         {/* Ribbons */}
@@ -30,7 +29,7 @@ export default function SolutionsPage() {
           ✨ END-TO-END SOLUTIONS ✨ DATA-FIRST STRATEGY ✨ AGILE SCALING ✨ AI POWER ✨ PROCESS DESIGN ✨
         </div>
         <div
-          className="absolute top-64 left-0 w-[200%] text-center text-xl text-white py-6 rotate-2 shadow-lg pointer-events-none overflow-hidden wave-ribbon"
+          className="absolute top-72 left-0 w-[200%] text-center text-xl text-white py-6 rotate-2 shadow-lg pointer-events-none overflow-hidden wave-ribbon"
           style={{ animationDirection: "reverse", animationDuration: "22s" }}
         >
           🚀 VISION TO EXECUTION 🚀 SYSTEMS INTEGRATION 🚀 CUSTOM DEVELOPMENT 🚀 TEAM ENABLEMENT 🚀
