@@ -6,7 +6,7 @@
 
 
 :root {
-  --background: #f4f4f4;
+  --background: #ffffff;
   --foreground: #171717;
 }
 
@@ -30,74 +30,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Wavy Background */
-.wavy-bg-container {
-  position: relative;
-  overflow: hidden;
-  padding: 80px 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-/* Wavy Divider */
-.wavy-divider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="white"/></svg>');
-  background-size: cover;
-}
-
-/* Wavy Scrolling Text */
-.wavy-scroll-text {
-  position: relative;
-  white-space: nowrap;
-  display: inline-block;
-  animation: wavy-scroll 20s linear infinite;
-  transform: translateY(0);
-}
-
-.marquee {
-  display: flex;
-  overflow: hidden;
-  height: 10vh;
-  user-select: none;
-  gap: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  position: relative;
-}
-
-.marquee:hover {
-  -webkit-text-stroke: 1.5px #fff;
-  text-stroke: 1.5px #fff;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-  color: transparent;
-  transition: all 0.5s ease;
-  -webkit-font-smoothing: antialiased;
-}
-
-.marquee__group {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  min-width: 100%;
-}
-
-.marquee__group span {
-  color: white;
-  font-size: 5vw;
-  font-weight: 800;
-  white-space: nowrap;
-  font-family: 'Syne', sans-serif;
-}
-
-@media only screen and (min-width: 360px) {
-  .marquee__group span {
-    font-size: 6.5vw;
-  }
-}
