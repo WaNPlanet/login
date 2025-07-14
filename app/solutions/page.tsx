@@ -29,7 +29,7 @@ export default function SolutionsPage() {
           ✨ END-TO-END SOLUTIONS ✨ DATA-FIRST STRATEGY ✨ AGILE SCALING ✨ AI POWER ✨ PROCESS DESIGN ✨
         </div>
         <div
-          className="absolute top-72 left-0 w-[200%] text-center text-xl text-white py-6 rotate-2 shadow-lg pointer-events-none overflow-hidden wave-ribbon"
+          className="absolute top-[22rem] left-0 w-[200%] text-center text-xl text-white py-6 rotate-2 shadow-lg pointer-events-none overflow-hidden wave-ribbon"
           style={{ animationDirection: "reverse", animationDuration: "22s" }}
         >
           🚀 VISION TO EXECUTION 🚀 SYSTEMS INTEGRATION 🚀 CUSTOM DEVELOPMENT 🚀 TEAM ENABLEMENT 🚀
